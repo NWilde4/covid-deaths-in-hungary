@@ -14,5 +14,7 @@ pip install -r requirements.txt
 ```
 
 Run app.py
+
 Execution may take a few minutes.
+
 A csv file will be generated with one column for the age group and another for the number of deaths.
