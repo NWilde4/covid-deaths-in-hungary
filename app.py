@@ -3,6 +3,7 @@ import bs4
 import csv
 import time
 import math
+import json
 
 counter = 1
 last_page_not_reached = True
@@ -18,7 +19,7 @@ largest_death_id = math.ceil(float(largest_death_id_element[0].getText().strip()
 estimated_number_of_pages = int(largest_death_id / 50)
 
 print('Program execution may take a few minutes.')
-print('Program will close automatically when the csv file is ready.')
+print('Program will close automatically when the csv and JSON file are ready.')
 print('Loading...')
 time.sleep(5)
 
@@ -46,3 +47,6 @@ with open('covid_deaths.csv', 'w') as f:
   for row in age_dictionary.items():
     writer.writerow(row)
 
+# Create JSON file of findings.
+with open('covid_deaths.json', 'w') as f:
+  json.dump(age_dictionary, f, indent=2)
