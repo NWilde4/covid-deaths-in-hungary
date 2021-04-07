@@ -48,5 +48,8 @@ with open('covid_deaths.csv', 'w') as f:
     writer.writerow(row)
 
 # Create JSON file of findings.
+list_of_objects = [{'age': key, 'deaths': value} for key, value in age_dictionary.items()]
+covid_deaths_object = {"agegroup": list_of_objects}
+
 with open('covid_deaths.json', 'w') as f:
-  json.dump(age_dictionary, f, indent=2)
+  json.dump(covid_deaths_object, f, indent=2)
